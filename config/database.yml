@@ -1,14 +1,14 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: training
+  database: training_dev
   pool: 5
   username:
   password:
 test:
   adapter: postgresql
   encoding: unicode
-  database: training
+  database: training_test
   pool: 5
   username:
   password:

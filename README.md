@@ -15,7 +15,7 @@
 - Ruby version
   Rails 6.0.1
 
-- Database creation
+- Database Information
   PostgreSQL 11.5
 
 ![avatar](https://i.imgur.com/0NEFWBK.png)

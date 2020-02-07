@@ -1,0 +1,16 @@
+<h2>任務列表</h2>
+<%= link_to '新增任務', new_task_path, class: 'btn btn-outline-primary' %>
+<% @tasks.each do |task| %>
+  <div class="card">
+    <div class="card-header">
+      <%= task.title %>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <%= task.content %>
+      </p>
+      <%= link_to '編輯', edit_task_path(task), class: 'btn btn-outline-primary' %>
+      <%= link_to '刪除', task_path(task), method: 'delete', data: { confirm: '確認刪除？'}, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

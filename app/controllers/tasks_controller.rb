@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   def index
+    # 之後會使用kaminari分頁
     @tasks = Task.all
   end
 

@@ -31,7 +31,8 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy if @task
+    if @task.present?
+      @task.destroy
       redirect_to tasks_path, notice: '刪除成功！'
     else
       redirect_to tasks_path, notice: '刪除失敗！'

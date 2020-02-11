@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
+  before_action :find_task, only: [:edit, :update, :destroy]
   def index
+    # 之後會使用kaminari分頁
     @tasks = Task.all
   end
 
@@ -18,25 +20,31 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find_by(id: params[:id])
   end
 
   def update
-    @task = Task.find_by(id: params[:id])
-    if @task.update(task_params)
-      redirect_to tasks_path, notice: '編輯成功！'
-    else
-    render :edit
+      if @task.update(task_params)
+        redirect_to tasks_path, notice: '編輯成功！'
+      else
+        render :edit
     end
   end
 
   def destroy
-    @task = Task.find_by(id: params[:id])
     @task.destroy if @task
-    redirect_to tasks_path, notice: '任務已刪除！'
+      redirect_to tasks_path, notice: '刪除成功！'
+    else
+      redirect_to tasks_path, notice: '刪除失敗！'
+    end
   end
 
+  private
   def task_params
     params.require(:task).permit(:title, :content)
   end
+
+  def find_task
+    @task = Task.find_by(id: params[:id])
+  end
+
 end

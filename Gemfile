@@ -23,16 +23,26 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+# gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '~> 1.4', '>= 1.4.5'
+gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+gem 'popper_js', '~> 1.16'
+gem 'simple_form', '~> 5.0', '>= 5.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec', '~> 3.5'
+  gem 'rspec-rails', '~> 3.9'
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.1'
+  gem 'travis', '~> 1.8', '>= 1.8.10'
+  gem 'travis-lint', '~> 2.0'
 end
 
 group :development do

@@ -3,6 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller do
-  describe 'a specification' do
+  describe '#index' do
+    it 'responds a 200 response' do
+      get :index
+      expect(response).to have_http_status '200'
+    end
+  end
+
+  describe '#create' do
+    it 'create a task' do
+    end
   end
 end

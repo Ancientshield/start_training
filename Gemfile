@@ -34,6 +34,7 @@ gem 'bootsnap', '~> 1.4', '>= 1.4.5'
 gem 'bootstrap', '~> 4.4', '>= 4.4.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'popper_js', '~> 1.16'
+gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form', '~> 5.0', '>= 5.0.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 
@@ -61,8 +62,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

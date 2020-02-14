@@ -17,6 +17,6 @@ RSpec.describe Task, type: :model do
   it 'is invalid task without a title' do
     task = FactoryBot.build(:task, title: nil)
     task.valid?
-    expect(task.errors[:title]).to include("can't be blank")
+    expect(task.errors[:title]).to include('不能為空白')
   end
 end

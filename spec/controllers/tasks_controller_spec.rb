@@ -12,6 +12,7 @@ RSpec.describe TasksController, type: :controller do
 
   describe '#create' do
     it 'create a task' do
+      @task = FactoryBot.create(:task)
     end
   end
 end

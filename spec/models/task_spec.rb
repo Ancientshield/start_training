@@ -3,20 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  # it 'Valid with a task title' do
-  #   task = Task.new(
-  #     title: 'My first task',
-  #     content: 'this is the first task content'
-  #   )
-  #   expect(task).to be_valid
-  # end
-  it 'has a valid task' do
-    expect(FactoryBot.build(:task)).to be_valid
-  end
+  # 不使用 FactoryBot.build 會報錯
+  # undefined method `build' for #<RSpec::ExampleGroups::Task:0x00007faab6d8f6e0>
+  let(:invalid_task) { FactoryBot.build(:task, title: nil) }
 
-  it 'is invalid task without a title' do
-    task = FactoryBot.build(:task, title: nil)
-    task.valid?
-    expect(task.errors[:title]).to include("can't be blank")
+  it 'should not valid' do
+    expect(invalid_task).not_to be_valid
+    expect(invalid_task.errors[:title]).to include("can't be blank")
   end
 end

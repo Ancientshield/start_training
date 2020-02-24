@@ -4,10 +4,10 @@ rvm:
 
 install:
   - bundle install
-  - nvm install
-  - gem install bundler -v 1.16.4
-  - cd package && npm install && cd -
-  - cd test/dummy && yarn install && cd -
+  - nvm install 10
+  - node -v
+  - npm i -g yarn
+  - yarn
 
 services:
   - postgresql

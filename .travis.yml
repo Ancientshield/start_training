@@ -8,7 +8,6 @@ install:
   - node -v
   - npm i -g yarn
   - yarn
-  - travis_wait mvn install
 
 services:
   - postgresql

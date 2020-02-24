@@ -28,7 +28,7 @@ class TasksController < ApplicationController
       task_notice '編輯成功！'
     else
       render :edit
-  end
+    end
   end
 
   def destroy

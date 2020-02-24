@@ -8,9 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Training
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
-    config.i18n.default_locale = 'en-US'
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :'zh-TW'
+    config.i18n.available_locales = %i[en zh-TW]
     config.generators do |g|
       g.test_framework :rspec,
                        # fixtures: false,

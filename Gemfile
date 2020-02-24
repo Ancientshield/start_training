@@ -42,12 +42,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'nokogiri', '~> 1.6', '>= 1.6.8'
   gem 'rspec', '~> 3.5'
   gem 'rspec-rails', '4.0.0.beta3'
-  gem 'selenium-webdriver'
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.1'
   gem 'travis', '~> 1.8', '>= 1.8.10'

@@ -1,5 +1,5 @@
 <%= simple_form_for(task) do |f| %>
-  <%= f.input :title, label: '任務標題' %>
-  <%= f.input :content, label: '任務內容' %>
-  <%= f.submit %>
+  <%= f.input :title, label: "#{t :task_title}" %>
+  <%= f.input :content, label: "#{t :task_content}" %>
+  <%= f.button :submit, "#{t :sure}" %>
 <% end %>

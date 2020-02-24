@@ -1,4 +1,4 @@
-<h2>編輯任務</h2>
+<h2><%= t :edit_task %></h2>
 <%= render 'form', task: @task %>
 <br/>
-<%= link_to '回任務列表', tasks_path %>
+<%= link_to "#{t :back_to_task_list}", tasks_path %>

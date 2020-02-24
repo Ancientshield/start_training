@@ -1,12 +1,18 @@
 language: ruby
 rvm:
   - 2.6.3
+
 install:
   - bundle install
+  - node -v
+  - npm i -g yarn
   - yarn install
-  - rails webpacker:install
+
 services:
   - postgresql
+
 script:
   - bundle exec rake db:migrate:reset RAILS_ENV=test
   - bundle exec rspec
+  - yarn test
+  - RAILS_ENV=development ./bin/webpack-dev-server

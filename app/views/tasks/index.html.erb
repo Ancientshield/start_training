@@ -4,8 +4,8 @@
 <% @tasks.each do |task| %>
   <div class="card">
     <div class="card-header">
-      <%= task.title %>
-      <%= task.created_at %>
+      <a><%= task.title %></a>
+      <a><%= task.created_at %></a>
     </div>
     <div class="card-body">
       <p class="card-text">

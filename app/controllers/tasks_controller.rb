@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      task_notice '任務新增成功！'
+      task_notice (I18n.t :'task.add_success').to_s
     else
       render :new
     end
@@ -25,7 +25,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      task_notice '編輯成功！'
+      task_notice (I18n.t :'task.edit_success').to_s
     else
       render :edit
     end
@@ -33,9 +33,9 @@ class TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      task_notice '刪除成功！'
+      task_notice (I18n.t :'task.deiete_success').to_s
     else
-      task_notice '刪除失敗！'
+      task_notice (I18n.t :'task.delete_fail').to_s
     end
   end
 
@@ -48,7 +48,7 @@ class TasksController < ApplicationController
   def find_task
     @task = Task.find(params[:id])
   rescue StandardError
-    task_notice '找不到任務喔！'
+    task_notice (I18n.t :'task.not_found').to_s
   end
 
   def task_notice(msg)

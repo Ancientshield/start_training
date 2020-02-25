@@ -7,3 +7,10 @@ en:
   task_content: Task Content
   back_to_task_list: Back
   sure: Sure
+  delete_sure: Delete sure?
+  task:
+    "add_success": Added success!
+    "edit_success": Edited success!
+    "delete_success": Deleted success!
+    "delete_fail": Deleted failed!
+    "not_found": Can't found task!

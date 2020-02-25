@@ -8,14 +8,17 @@ Bundler.require(*Rails.groups)
 
 module Training
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :en
+    config.i18n.available_locales = %i[en zh-TW]
+    config.time_zone = 'Taipei'
     config.generators do |g|
       g.test_framework :rspec,
-        fixtures: false,
-        view_specs: false,
-        helper_specs: false,
-        routing_specs: false
+                       # fixtures: false,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       request_specs: false
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

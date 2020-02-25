@@ -17,6 +17,9 @@
   },
   "scripts": {
     "test": "test --passWithNoTests",
-    "postinstall": "npm rebuild node-sass"
+    "postinstall": "cd ./frontend && yarn && yarn run webpack --config ./webpack.config.js"
+  },
+  "engines": {
+    "yarn": "1.x"
   }
 }

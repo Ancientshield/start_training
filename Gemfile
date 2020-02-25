@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '4.0.0.beta3'
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.1'
+  gem 'timecop', '~> 0.8.1'
   gem 'travis', '~> 1.8', '>= 1.8.10'
   gem 'travis-lint', '~> 2.0'
   gem 'webdrivers'

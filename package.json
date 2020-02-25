@@ -20,13 +20,6 @@
   },
   "scripts": {
     "test": "test --passWithNoTests",
-    "start": "node src/index.js",
-    "build": "webpack -p --progress",
-    "start": "webpack-dev-server"
-  },
-  "engines": {
-    "yarn": "1.x",
-    "node": "12.13.x"
-  },
-  "heroku-run-build-script": true
+    "start": "node src/index.js"
+  }
 }

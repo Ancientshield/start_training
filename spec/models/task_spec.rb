@@ -7,6 +7,6 @@ RSpec.describe Task, type: :model do
 
   it 'should not valid' do
     expect(invalid_task).not_to be_valid
-    expect(invalid_task.errors[:title]).to include("can't be blank")
+    expect(invalid_task.errors[:title]).to include((I18n.t :cant_be_blank).to_s)
   end
 end

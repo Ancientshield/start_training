@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootsnap', '~> 1.4', '>= 1.4.5'
 gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+gem 'bootstrap-datepicker-rails'
+gem 'foreman', '~> 0.87.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'popper_js', '~> 1.16'
 gem 'pry', '~> 0.10.3'

@@ -4,6 +4,9 @@ zh-TW:
   edit_task: 編輯任務
   delete_task: 刪除任務
   task_title: 任務標題
+  create_time: 建立時間
+  end_time: 結束時間
   task_content: 任務內容
-  back_to_task_list: 回到任務列表
+  back_to_task_list: 返回
   sure: 確認
+  cant_be_blank: 不能為空白

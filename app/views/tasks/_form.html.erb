@@ -1,5 +1,10 @@
 <%= simple_form_for(task) do |f| %>
   <%= f.input :title, label: "#{t :task_title}" %>
   <%= f.input :content, label: "#{t :task_content}" %>
-  <%= f.button :submit, "#{t :sure}" %>
+  <a><%= "#{t :end_time}"%></a>
+  <%# f.text_field :end_time, data: {provide:'datepicker', dateFormat: 'yy-mm-dd'} %>
+  <%= f.text_field :end_time, class: 'flatPicker' %>
+  <br/>
+  <%= f.button :submit, "#{t :sure}", class: 'btn btn-outline-primary' %>
+  <%= link_to "#{t :back_to_task_list}", tasks_path, class: 'btn btn-primary' %>
 <% end %>

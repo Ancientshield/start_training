@@ -7,6 +7,9 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
+    "bootstrap-datetimepicker": "^0.0.7",
+    "datetimepicker": "^0.1.39",
+    "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"

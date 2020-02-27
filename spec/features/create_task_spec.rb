@@ -16,6 +16,6 @@ RSpec.feature 'create task', type: :feature do
     visit new_task_path
     fill_in (I18n.t :task_title).to_s, with: ''
     click_on (I18n.t :sure).to_s
-    expect(page).to have_content("can't be blank")
+    expect(page).to have_content((I18n.t :cant_be_blank).to_s)
   end
 end

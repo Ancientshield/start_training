@@ -4,6 +4,9 @@ en:
   edit_task: Edit Task
   delete_task: Delete Task
   task_title: Task Title
+  create_time: Create Time
+  end_time: End Time
   task_content: Task Content
   back_to_task_list: Back
   sure: Sure
+  cant_be_blank: can't be blank

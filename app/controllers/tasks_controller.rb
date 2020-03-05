@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[edit update destroy]
   def index
     # 之後會使用kaminari分頁
-    @tasks = Task.order('created_at ASC')
+    # binding.pry
+    @tasks = Task.order(params[:order])
   end
 
   def new

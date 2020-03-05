@@ -1,18 +1,20 @@
 <h2><%= t :tasks_list %></h2>
 <h5><%= notice %></h5>
 <%= link_to "#{t :new_task}", new_task_path, class: 'btn btn-outline-primary' %>
-<% @tasks.each do |task| %>
-  <div class="card">
-    <div class="card-header">
-      <a><%= task.title %></a>
-      <a><%= task.created_at %></a>
-    </div>
-    <div class="card-body">
-      <p class="card-text">
-        <%= task.content %>
-      </p>
-      <%= link_to "#{t :edit_task}", edit_task_path(task), class: 'btn btn-outline-primary' %>
-      <%= link_to "#{t :delete_task}", task_path(task), method: 'delete', data: { confirm: '確認刪除？'}, class: 'btn btn-primary' %>
-    </div>
+<%# select_tag 'order_time', options_for_select( [["#{t :create_time}", "rails_base"], ["Rubyの基礎", "ruby_base"]], 'ruby_base' ), class: 'form-control' %>
+<%# select(:task, :id, [['Lisbon', 1], ['Madrid', 2]]) %>
+
+<% if true %>
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= t :sort_by %>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="<%= tasks_path( params: { order: :created_at }) %>"><%= t :create_time %></a>
+    <a class="dropdown-item" href="<%= tasks_path( params: { order: :end_time }) %>"><%= t :end_time %></a>
   </div>
+</div>
 <% end %>
+
+
+<%= render 'tasks', tasks: @tasks %>

@@ -11,6 +11,7 @@
     "datetimepicker": "^0.1.39",
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
+    "popper": "^1.0.1",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },

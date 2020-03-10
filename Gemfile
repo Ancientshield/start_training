@@ -8,6 +8,7 @@ ruby '2.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2.1'
 # Use sqlite3 as the database for Active Record
+
 # gem 'sqlite3', '~> 1.4'
 gem 'pg', '~> 0.18.4'
 
@@ -43,6 +44,9 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'ransack'
 gem 'simple_form', '~> 5.0', '>= 5.0.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+gem 'font-awesome-sass', '~> 5.12.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

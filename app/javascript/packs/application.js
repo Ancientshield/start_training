@@ -6,6 +6,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require font-awesome
+
 // require bootstrap-datepicker
 // require datetimepicker
 
@@ -19,6 +21,8 @@ require("popper.js");
 
 import "../src/style.scss";
 import "bootstrap";
+import "../stylesheets/application";
+import "@fortawesome/fontawesome-free/js/all";
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

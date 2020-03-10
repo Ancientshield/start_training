@@ -2,6 +2,7 @@
 
 class TasksController < ApplicationController
   before_action :find_task, only: %i[edit update destroy]
+  before_action :validates_search_key, only: %i[search]
   def index
     # 之後會使用kaminari分頁
     # binding.pry
@@ -9,6 +10,8 @@ class TasksController < ApplicationController
                Task.where('aasm_state LIKE ?', params[:state].to_s)
              elsif params[:order].present?
                Task.order(params[:order])
+             elsif params[:query_string].present?
+               Task.where('title ILIKE ?', "%#{params[:query_string]}%")
              else
                Task.all
              end
@@ -43,6 +46,14 @@ class TasksController < ApplicationController
       task_notice { t :task_deleted_successful }
     else
       task_notice { t :task_deleted_failed }
+    end
+  end
+
+  protected
+
+  def validates_search_key
+    if params[:query_string].present?
+      @q = params[:query_string].gsub(%r{\\|\'|/|\?}, '')
     end
   end
 

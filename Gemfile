@@ -30,14 +30,17 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.4.2', require: false
+gem 'aasm'
 gem 'bootsnap', '~> 1.4', '>= 1.4.5'
-gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+gem 'bootstrap', '~> 4.4'
 gem 'bootstrap-datepicker-rails'
 gem 'foreman', '~> 0.87.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
-gem 'popper_js', '~> 1.16'
+gem 'kaminari'
+gem 'popper_js'
 gem 'pry', '~> 0.10.3'
 gem 'rails-i18n', '~> 6.0.0'
+gem 'ransack'
 gem 'simple_form', '~> 5.0', '>= 5.0.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 

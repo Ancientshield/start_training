@@ -11,3 +11,21 @@ zh-TW:
   sure: 確認
   cant_be_blank: 不能為空白
   sort_by: 排序方式
+  state_search: 狀態查詢
+  activerecord:
+    attributes:
+      task:
+        aasm_state: 狀態
+        aasm_state/pending: 待處理
+        aasm_state/processing: 進行中
+        aasm_state/finishing: 已完成
+  task_created_successful: 任務新增成功！
+  task_edited_successful: 編輯成功！
+  task_delete_sure: 確認刪除？
+  task_deleted_successful: 任務已刪除！
+  task_deleted_failed: 刪除失敗！
+  cant_find_task: 找不到任務喔！
+  task_state: 任務狀態
+  pending: 待處理
+  processing: 進行中
+  finishing: 已完成

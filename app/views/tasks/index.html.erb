@@ -16,5 +16,17 @@
 </div>
 <% end %>
 
+<% if true %>
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= t :state_search %>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="<%= tasks_path( params: { state: :pending }) %>"><%= t :pending %></a>
+    <a class="dropdown-item" href="<%= tasks_path( params: { state: :processing }) %>"><%= t :processing %></a>
+    <a class="dropdown-item" href="<%= tasks_path( params: { state: :finishing }) %>"><%= t :finishing %></a>
+  </div>
+</div>
+<% end %>
 
 <%= render 'tasks', tasks: @tasks %>

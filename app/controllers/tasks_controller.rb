@@ -5,7 +5,13 @@ class TasksController < ApplicationController
   def index
     # 之後會使用kaminari分頁
     # binding.pry
-    @tasks = Task.order(params[:order])
+    @tasks = if params[:state].present?
+               Task.where('aasm_state LIKE ?', params[:state].to_s)
+             elsif params[:order].present?
+               Task.order(params[:order])
+             else
+               Task.all
+             end
   end
 
   def new
@@ -16,7 +22,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      task_notice '任務新增成功！'
+      task_notice { t :task_created_successful }
     else
       render :new
     end
@@ -26,7 +32,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      task_notice '編輯成功！'
+      task_notice { t :task_edited_successful }
     else
       render :edit
     end
@@ -34,9 +40,9 @@ class TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      task_notice '刪除成功！'
+      task_notice { t :task_deleted_successful }
     else
-      task_notice '刪除失敗！'
+      task_notice { t :task_deleted_failed }
     end
   end
 
@@ -49,7 +55,7 @@ class TasksController < ApplicationController
   def find_task
     @task = Task.find(params[:id])
   rescue StandardError
-    task_notice '找不到任務喔！'
+    task_notice { t :cant_find_task }
   end
 
   def task_notice(msg)

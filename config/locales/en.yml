@@ -33,3 +33,7 @@ en:
   pending: Pending
   processing: Processing
   finishing: Finishing
+  task_priority: Task Priority
+  high: High
+  medium: Medium
+  low: Low

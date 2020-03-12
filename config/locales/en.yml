@@ -12,17 +12,6 @@ en:
   cant_be_blank: can't be blank
   sort_by: sort by...
   state_search: State Search
-  activerecord:
-  attributes:
-    task:
-      state: State
-      state/pending: Pending
-      state/processing: Processing
-      state/finishing: Finishing
-      priority: Priority
-      priority/high: High
-      priority/medium: Medium
-      priority/low: Low
   task_created_successful: task created successful!
   task_edited_successful: task edited successful!
   task_delete_sure: delete task?
@@ -30,6 +19,17 @@ en:
   task_deleted_failed: task deleted failed!
   cant_find_task: can't find task!
   task_state: Task State
+  activerecord:
+    attributes:
+      task:
+        state: State
+        state/pending: Pending
+        state/processing: Processing
+        state/finishing: Finishing
+        priority: Priority
+        priority/high: High
+        priority/medium: Medium
+        priority/low: Low
   pending: Pending
   processing: Processing
   finishing: Finishing

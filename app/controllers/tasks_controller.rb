@@ -2,19 +2,23 @@
 
 class TasksController < ApplicationController
   before_action :find_task, only: %i[edit update destroy]
-  before_action :validates_search_key, only: %i[search]
   def index
     # 之後會使用kaminari分頁
     # binding.pry
+    @q = Task.search(params[:q])
     @tasks = if params[:state].present?
-               Task.where('aasm_state LIKE ?', params[:state].to_s)
+               Task.where('state LIKE ?', params[:state].to_s)
              elsif params[:order].present?
                Task.order(params[:order])
              elsif params[:query_string].present?
                Task.where('title ILIKE ?', "%#{params[:query_string]}%")
+             elsif
+               @q = Task.ransack(params[:q])
+               @tasks = @q.result
              else
                Task.all
              end
+    @tasks = @tasks.limit(3).page(params[:page])
   end
 
   def new
@@ -25,7 +29,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      task_notice { t :task_created_successful }
+      redirect_to tasks_path, notice: (t :task_created_successful).to_s
     else
       render :new
     end
@@ -35,7 +39,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      task_notice { t :task_edited_successful }
+      redirect_to tasks_path, notice: (t :task_edited_successful).to_s
     else
       render :edit
     end
@@ -43,33 +47,21 @@ class TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      task_notice { t :task_deleted_successful }
+      redirect_to tasks_path, notice: (t :task_deleted_successful).to_s
     else
-      task_notice { t :task_deleted_failed }
-    end
-  end
-
-  protected
-
-  def validates_search_key
-    if params[:query_string].present?
-      @q = params[:query_string].gsub(%r{\\|\'|/|\?}, '')
+      redirect_to tasks_path, notice: (t :task_deleted_failed).to_s
     end
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:title, :end_time, :content)
+    params.require(:task).permit(:title, :end_time, :content, :state, :priority)
   end
 
   def find_task
     @task = Task.find(params[:id])
   rescue StandardError
-    task_notice { t :cant_find_task }
-  end
-
-  def task_notice(msg)
-    redirect_to tasks_path, notice: msg.to_s
+    redirect_to tasks_path, notice: (t :cant_find_task).to_s
   end
 end

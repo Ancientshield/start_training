@@ -6,7 +6,8 @@
 
 <% if true %>
 <div class="dropdown">
-  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
     <%= t :sort_by %>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -18,7 +19,8 @@
 
 <% if true %>
 <div class="dropdown">
-  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
     <%= t :state_search %>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -34,7 +36,7 @@
     <div class="input-group">
       <input type="text" class="form-control" name="query_string" placeholder="Search...">
       <div class="input-group-append">
-        <button class="btn btn-secondary" type="submit">
+        <button class="btn btn-primary" type="submit">
           <i class="fa fa-search"></i>
         </button>
       </div>
@@ -42,4 +44,8 @@
   <% end %>
 <% end %>
 
+<%= render 'search_form_for', q: @q %>
+
 <%= render 'tasks', tasks: @tasks %>
+
+<%= paginate @tasks %>

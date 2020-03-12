@@ -1,0 +1,5 @@
+<%= search_form_for q do |f| %>
+  <%= f.label :search_index %>
+  <%= f.text_field :title_or_content_cont, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

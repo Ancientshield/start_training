@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   include AASM
   validates_presence_of :title
 
-  aasm do
+  aasm column: :state do
     state :pending, initial: true
     state :processing, :finishing
 
@@ -15,5 +15,10 @@ class Task < ApplicationRecord
     event :completed do
       transitions from: :processing, to: :finishing
     end
+  end
+
+  aasm column: :priority do
+    state :medium, initial: true
+    state :high, :low
   end
 end

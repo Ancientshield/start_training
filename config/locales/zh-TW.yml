@@ -15,10 +15,14 @@ zh-TW:
   activerecord:
     attributes:
       task:
-        aasm_state: 狀態
-        aasm_state/pending: 待處理
-        aasm_state/processing: 進行中
-        aasm_state/finishing: 已完成
+        state: 狀態
+        state/pending: 待處理
+        state/processing: 進行中
+        state/finishing: 已完成
+        priority: 優先度
+        priority/high: 高
+        priority/medium: 中
+        priority/low: 低
   task_created_successful: 任務新增成功！
   task_edited_successful: 編輯成功！
   task_delete_sure: 確認刪除？

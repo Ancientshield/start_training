@@ -1,9 +1,10 @@
 <%= simple_form_for(task) do |f| %>
   <%= f.input :title, label: "#{t :task_title}" %>
   <%= f.input :content, label: "#{t :task_content}" %>
+  <%= f.input :priority, as: :radio_buttons, collection: [['high',"#{t :high}"], ['medium',"#{t :medium}"], ['low',"#{t :low}"]], label_method: :second, value_method: :first, wrapper: :vertical_collection_inline %>
+  <%= f.input :state, as: :radio_buttons, collection: [['pending',"#{t :pending}"], ['processing',"#{t :processing}"], ['finishing',"#{t :finishing}"]], label_method: :second, value_method: :first, wrapper: :vertical_collection_inline %>
   <%= f.input :end_time, label: "#{t :end_time}" %>
   <%# f.text_field :end_time, data: {provide:'datepicker', dateFormat: 'yy-mm-dd'} %>
   <%# f.text_field :end_time, class: 'flatPicker' %>
-  <%= f.button :submit, "#{t :sure}", class: 'btn btn-outline-primary' %>
   <%= link_to "#{t :back_to_task_list}", tasks_path, class: 'btn btn-primary' %>
 <% end %>

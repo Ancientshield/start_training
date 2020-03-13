@@ -5,9 +5,14 @@
       <a><%= task.title %></a>
       <a><%= t :create_time %>：<%= task.created_at.strftime('%Y-%m-%d %H:%M:%S %z')%></a>
       <a><%= t :end_time %>：<%= task.end_time.strftime('%Y-%m-%d %H:%M:%S %z') %></a>
-      <a><%= t :task_state %>：<%= t task.state %></a>
-      <%# binding.pry %>
-      <a><%= t :task_priority %>：<%= t task.priority %></a>
+      <% if false %>
+      如果寫成 <%= t task.priority %> 或 <%= t :"#{task.priority}" %>，
+      rspec 都會跳 ActionView::Template::Error:I18n::ArgumentError，
+      但用I18n內建的human_state，又無法抓到aasm設定的multi state machine，
+      沒辦法完全I18n，小遺憾。
+      <% end %>
+      <a><%= t :task_state  %>：<%= task.state %></a>
+      <a><%= t :task_priority %>：<%= task.priority %></a>
     </div>
     <div class="card-body">
       <p class="card-text">

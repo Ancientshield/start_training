@@ -32,6 +32,20 @@
 <% end %>
 
 <% if true %>
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    <%= t :task_priority %>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="<%= tasks_path( params: { priority: :high }) %>"><%= t :high %></a>
+    <a class="dropdown-item" href="<%= tasks_path( params: { priority: :medium }) %>"><%= t :medium %></a>
+    <a class="dropdown-item" href="<%= tasks_path( params: { priority: :low }) %>"><%= t :low %></a>
+  </div>
+</div>
+<% end %>
+
+<% if true %>
   <%= form_tag tasks_path, method: :get, class: 'questions-search-form' do %>
     <div class="input-group">
       <input type="text" class="form-control" name="query_string" placeholder="Search...">

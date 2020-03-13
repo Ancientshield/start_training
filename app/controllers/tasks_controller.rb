@@ -8,6 +8,8 @@ class TasksController < ApplicationController
     @q = Task.search(params[:q])
     @tasks = if params[:state].present?
                Task.where('state LIKE ?', params[:state].to_s)
+             elsif params[:priority].present?
+               Task.where('priority LIKE ?', params[:priority].to_s)
              elsif params[:order].present?
                Task.order(params[:order])
              elsif params[:query_string].present?

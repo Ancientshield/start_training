@@ -1,65 +1,6 @@
 <h2><%= t :tasks_list %></h2>
 <h5><%= notice %></h5>
 <%= link_to "#{t :new_task}", new_task_path, class: 'btn btn-outline-primary' %>
-<%# select_tag 'order_time', options_for_select( [["#{t :create_time}", "rails_base"], ["Rubyの基礎", "ruby_base"]], 'ruby_base' ), class: 'form-control' %>
-<%# select(:task, :id, [['Lisbon', 1], ['Madrid', 2]]) %>
-
-<% if true %>
-<div class="dropdown">
-  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false">
-    <%= t :sort_by %>
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="<%= tasks_path( params: { order: :created_at }) %>"><%= t :create_time %></a>
-    <a class="dropdown-item" href="<%= tasks_path( params: { order: :end_time }) %>"><%= t :end_time %></a>
-  </div>
-</div>
-<% end %>
-
-<% if true %>
-<div class="dropdown">
-  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false">
-    <%= t :state_search %>
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="<%= tasks_path( params: { state: :pending }) %>"><%= t :pending %></a>
-    <a class="dropdown-item" href="<%= tasks_path( params: { state: :processing }) %>"><%= t :processing %></a>
-    <a class="dropdown-item" href="<%= tasks_path( params: { state: :finishing }) %>"><%= t :finishing %></a>
-  </div>
-</div>
-<% end %>
-
-<% if true %>
-<div class="dropdown">
-  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false">
-    <%= t :task_priority %>
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="<%= tasks_path( params: { priority: :high }) %>"><%= t :high %></a>
-    <a class="dropdown-item" href="<%= tasks_path( params: { priority: :medium }) %>"><%= t :medium %></a>
-    <a class="dropdown-item" href="<%= tasks_path( params: { priority: :low }) %>"><%= t :low %></a>
-  </div>
-</div>
-<% end %>
-
-<% if true %>
-  <%= form_tag tasks_path, method: :get, class: 'questions-search-form' do %>
-    <div class="input-group">
-      <input type="text" class="form-control" name="query_string" placeholder="Search...">
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="submit">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
 <%= render 'search_form_for', q: @q %>
-
 <%= render 'tasks', tasks: @tasks %>
-
 <%= paginate @tasks %>

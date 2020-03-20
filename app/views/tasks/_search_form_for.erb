@@ -1,5 +1,9 @@
 <%= search_form_for q do |f| %>
-  <%= f.label :search_index %>
+  <%= f.label "#{t :sort_by}" %>
+  <%= select_tag :order, options_for_select( [["#{t :create_time}", :created_at], ["#{t :end_time}", :end_time]] ), class: 'form-control' %>
+  <%= f.input :state_cont, label: "#{t :task_state}", collection: [['pending', "#{t :pending}"], ['processing', "#{t :processing}"], ['finishing', "#{t :finishing}"]], label_method: :second, value_method: :first %>
+  <%= f.input :priority_cont, label: "#{t :task_priority}", collection: [['high', "#{t :high}"], ['medium', "#{t :medium}"], ['low', "#{t :low}"]], label_method: :second, value_method: :first %>
+  <%= f.label "#{t :search_index}" %>
   <%= f.text_field :title_or_content_cont, class: 'form-control' %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

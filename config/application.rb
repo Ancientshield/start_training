@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
+require File.expand_path('boot', __dir__)
+ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 require 'rails/all'
 require 'kaminari'
 # Require the gems listed in Gemfile, including any gems

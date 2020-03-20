@@ -3,23 +3,9 @@
 class TasksController < ApplicationController
   before_action :find_task, only: %i[edit update destroy]
   def index
-    # 之後會使用kaminari分頁
-    # binding.pry
-    @q = Task.search(params[:q])
-    @tasks = if params[:state].present?
-               Task.where('state LIKE ?', params[:state].to_s)
-             elsif params[:priority].present?
-               Task.where('priority LIKE ?', params[:priority].to_s)
-             elsif params[:order].present?
-               Task.order(params[:order])
-             elsif params[:query_string].present?
-               Task.where('title ILIKE ?', "%#{params[:query_string]}%")
-             elsif
-               @q = Task.ransack(params[:q])
-               @tasks = @q.result
-             else
-               Task.all
-             end
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true)
+    @tasks = @tasks.order("#{params[:order]} ASC") if params[:order].present?
     @tasks = @tasks.limit(3).page(params[:page])
   end
 
@@ -31,7 +17,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to tasks_path, notice: (t :task_created_successful).to_s
+      redirect_to tasks_path, notice: (t :task_created_successful)
     else
       render :new
     end
@@ -41,7 +27,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: (t :task_edited_successful).to_s
+      redirect_to tasks_path, notice: (t :task_edited_successful)
     else
       render :edit
     end
@@ -49,9 +35,9 @@ class TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      redirect_to tasks_path, notice: (t :task_deleted_successful).to_s
+      redirect_to tasks_path, notice: (t :task_deleted_successful)
     else
-      redirect_to tasks_path, notice: (t :task_deleted_failed).to_s
+      redirect_to tasks_path, notice: (t :task_deleted_failed)
     end
   end
 
@@ -64,6 +50,6 @@ class TasksController < ApplicationController
   def find_task
     @task = Task.find(params[:id])
   rescue StandardError
-    redirect_to tasks_path, notice: (t :cant_find_task).to_s
+    redirect_to tasks_path, notice: (t :cant_find_task)
   end
 end

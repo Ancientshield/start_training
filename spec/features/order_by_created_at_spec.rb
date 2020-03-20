@@ -8,6 +8,8 @@ RSpec.feature 'task order by create time', type: :feature do
 
   scenario 'verify order & timestamp' do
     visit tasks_path
+    page.select I18n.t :create_time, from: 'order'
+    find_button('commit').click
     expect(page.text.index('Task Order 001')).to be < page.text.index('Task Order 002')
     expect(task_001.created_at).to be < task_002.created_at
   end

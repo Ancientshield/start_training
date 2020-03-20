@@ -36,6 +36,7 @@ gem 'bootsnap', '~> 1.4', '>= 1.4.5'
 gem 'bootstrap', '~> 4.4'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap4-kaminari-views'
+gem 'faker'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'foreman', '~> 0.87.0'
@@ -51,6 +52,7 @@ gem 'simple_form', '~> 5.0', '>= 5.0.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'will_paginate-bootstrap4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -70,11 +72,11 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 end
 
 group :test do

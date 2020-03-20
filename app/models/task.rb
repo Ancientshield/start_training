@@ -17,8 +17,9 @@ class Task < ApplicationRecord
     end
   end
 
-  aasm column: :priority do
-    state :medium, initial: true
-    state :high, :low
-  end
+  # 建立一張 3高 2中 1低的表來join
+  # aasm column: :priority do
+  #   state :medium, initial: true
+  #   state :high, :low
+  # end
 end

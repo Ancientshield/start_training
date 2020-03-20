@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # 新寫法
   root to: 'tasks#index'
   resources :tasks do
+    collection { post :search, to: 'tasks#index' }
   end
-  get '/search' => 'search#index', as: 'search'
 end

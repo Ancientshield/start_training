@@ -39,3 +39,7 @@ zh-TW:
   low: 低
   add: 請選擇...
   search_index: 任務索引
+  selected: 請選擇...
+  low_to_high: 低到高
+  high_to_low: 高到低
+  advanced_search: 進階搜尋

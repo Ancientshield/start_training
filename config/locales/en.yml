@@ -39,3 +39,7 @@ en:
   low: Low
   add: add...
   search_index: Search Index
+  selected: Selected...
+  low_to_high: Low to High
+  high_to_low: High to Low
+  advanced_search: Advanced Search

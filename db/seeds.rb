@@ -10,9 +10,19 @@
 
 require 'faker'
 
+@state = []
+@state = %w[pending processing finishing]
+
+@priority = []
+@priority = %w[high medium low]
+
 100.times do
   Task.create(
     title: Faker::Games::WorldOfWarcraft.hero,
-    content: Faker::Games::WorldOfWarcraft.quote
+    content: Faker::Games::WorldOfWarcraft.quote,
+    end_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 30),
+    state: @state[rand(0..2)],
+    priority: @priority[rand(0..2)],
+    degree: rand(1..3)
   )
 end

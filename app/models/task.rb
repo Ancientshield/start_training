@@ -4,6 +4,8 @@ class Task < ApplicationRecord
   include AASM
   validates_presence_of :title
 
+  belongs_to :users
+
   aasm column: :state do
     state :pending, initial: true
     state :processing, :finishing

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  before_action :authorize
   def set_locale
     I18n.locale = extract_locale_from_tld || I18n.default_locale
   end

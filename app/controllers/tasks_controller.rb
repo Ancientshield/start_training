@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
+  include SessionsHelper
   before_action :find_task, only: %i[edit update destroy]
   def index
     @q = Task.ransack(params[:q])

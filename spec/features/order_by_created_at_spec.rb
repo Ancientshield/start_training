@@ -11,6 +11,5 @@ RSpec.feature 'task order by create time', type: :feature do
     page.select I18n.t :create_time, from: 'order'
     find_button('commit01').click
     expect(page.text.index('Task Order 001')).to be < page.text.index('Task Order 002')
-    expect(task_001.created_at).to be < task_002.created_at
   end
 end

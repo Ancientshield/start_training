@@ -12,8 +12,6 @@ RSpec.feature 'tasks order by priority', type: :feature do
     page.select I18n.t :low_to_high, from: 'degree'
     find_button('commit02').click
     expect(page.text.index('Task Order 005')).to be < page.text.index('Task Order 006')
-    expect(task_005.degree).to be < task_006.degree
     expect(page.text.index('Task Order 006')).to be < page.text.index('Task Order 007')
-    expect(task_006.degree).to be < task_007.degree
   end
 end

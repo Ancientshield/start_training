@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :tasks do
     collection { post :search, to: 'tasks#index' }
   end
+  resources :users, path: '/', only: %i[show edit update destroy]
 end

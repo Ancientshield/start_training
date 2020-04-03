@@ -6,12 +6,9 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
-    @tasks = @tasks.order("#{params[:order]} ASC") if params[:order].present?
-    params[:order] = nil
-    if params[:degree].present?
-      @tasks = @tasks.order("degree #{params[:degree]}")
+    if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whtelist)
+      @tasks = @tasks.order_by_time(params[:order]).order_by_priority(params[:degree])
     end
-    params[:degree] = nil
     @tasks = @tasks.limit(5).page(params[:page])
   end
 
@@ -50,20 +47,35 @@ class TasksController < ApplicationController
     end
   end
 
-  def task_degree
-    @task.degree = if @task.priority == 'high'
-                     3
-                   elsif @task.priority == 'medium'
-                     2
-                   else
-                     1
-                  end
-  end
-
   private
 
   def task_params
     params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree)
+  end
+
+  def order_params
+    params.permit(:order).tap do |ps|
+      ps.delete(:order) unless ps[:order].in?(%w[end_time created_at])
+    end
+  end
+
+  def degree_params
+    params.permit(:degree).tap do |ps|
+      ps.delete(:degree) unless ps[:degree].in?(%w[ASC DESC])
+    end
+  end
+
+  def task_degree
+    tables = { low: 1, medium: 2, high: 3 }
+    @tasks.degree = tables[@task.priority.to_sym]
+  end
+
+  def order_whitelist
+    %w[end_time created_at]
+  end
+
+  def degree_whitelist
+    [1, 2, 3]
   end
 
   def find_task

@@ -11,6 +11,5 @@ RSpec.feature 'task order by end time', type: :feature do
     page.select I18n.t :end_time, from: 'order'
     find_button('commit01').click
     expect(page.text.index('Task Order 004')).to be < page.text.index('Task Order 003')
-    expect(task_004.end_time).to be < task_003.end_time
   end
 end

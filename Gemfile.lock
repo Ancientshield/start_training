@@ -340,6 +340,8 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -418,6 +420,7 @@ DEPENDENCIES
   travis-lint (~> 2.0)
   turbolinks (~> 5)
   tzinfo-data
+  warden
   web-console (>= 3.3.0)
   webdrivers
   webpacker (= 4.2.2)

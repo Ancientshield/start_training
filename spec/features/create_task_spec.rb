@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.feature 'create task', type: :feature do
   scenario 'valid inputs' do
+    visit login_path
+    fill_in 'name', with: 'admin'
+    fill_in 'password', with: 'asdf1234'
+    click_on 'commit'
     visit new_task_path
     fill_in (I18n.t :task_title).to_s, with: 'Feature Test 001'
     click_on (I18n.t :sure).to_s
@@ -13,6 +18,10 @@ RSpec.feature 'create task', type: :feature do
   end
 
   scenario 'invalid inputs' do
+    visit login_path
+    fill_in 'name', with: 'admin'
+    fill_in 'password', with: 'asdf1234'
+    click_on 'commit'
     visit new_task_path
     fill_in (I18n.t :task_title).to_s, with: ''
     click_on (I18n.t :sure).to_s

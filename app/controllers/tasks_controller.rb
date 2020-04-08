@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
-    if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whtelist)
+    if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whitelist)
       @tasks = @tasks.order_by_time(params[:order]).order_by_priority(params[:degree])
     end
     @tasks = @tasks.limit(5).page(params[:page])
@@ -67,7 +67,7 @@ class TasksController < ApplicationController
 
   def task_degree
     tables = { low: 1, medium: 2, high: 3 }
-    @tasks.degree = tables[@task.priority.to_sym]
+    @task.degree = tables[@task.priority.to_sym] if @task.priority.present?
   end
 
   def order_whitelist

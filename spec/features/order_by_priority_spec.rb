@@ -12,12 +12,10 @@ RSpec.feature 'tasks order by priority', type: :feature do
     fill_in 'name', with: 'admin'
     fill_in 'password', with: 'asdf1234'
     click_on 'commit'
-    visit tasks_path
     visit new_task_path
     fill_in (I18n.t :task_title).to_s, with: 'Task Order 005'
     page.choose('task_priority_low').click
     click_on (I18n.t :sure).to_s
-    visit tasks_path
     visit new_task_path
     fill_in (I18n.t :task_title).to_s, with: 'Task Order 006'
     page.choose('task_priority_high').click

@@ -75,7 +75,7 @@ class TasksController < ApplicationController
   end
 
   def degree_whitelist
-    [1, 2, 3]
+    %w[ASC DESC]
   end
 
   def find_task

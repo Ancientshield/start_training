@@ -18,14 +18,14 @@ require 'faker'
 
 User.create(name: 'admin', email: 'admin@gmail.com', password: 'asdf1234')
 
-10.times do
-  Task.create(
-    title: Faker::Games::Pokemon.location,
-    content: Faker::Games::WorldOfWarcraft.quote,
-    end_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 30),
-    state: @state[rand(0..2)],
-    priority: @priority[rand(0..2)],
-    degree: rand(1..3),
-    user_id: 1
-  )
-end
+# 10.times do
+#   Task.create(
+#     title: Faker::Games::Pokemon.location,
+#     content: Faker::Games::WorldOfWarcraft.quote,
+#     end_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 30),
+#     state: @state[rand(0..2)],
+#     priority: @priority[rand(0..2)],
+#     degree: rand(1..3),
+#     user_id: 1
+#   )
+# end

@@ -16,7 +16,7 @@ require 'faker'
 @priority = []
 @priority = %w[high medium low]
 
-User.create(name: 'admin', email: 'admin@gmail.com', password: 'asdf1234')
+User.create(name: 'admin', email: 'admin@gmail.com', password_digest: 'asdf1234')
 
 # 10.times do
 #   Task.create(

@@ -4,6 +4,42 @@ zh-TW:
   edit_task: 編輯任務
   delete_task: 刪除任務
   task_title: 任務標題
+  create_time: 建立時間
+  end_time: 結束時間
   task_content: 任務內容
-  back_to_task_list: 回到任務列表
+  back_to_task_list: 返回
   sure: 確認
+  cant_be_blank: 不能為空白
+  sort_by: 排序方式
+  state_search: 狀態查詢
+  task_created_successful: 任務新增成功！
+  task_edited_successful: 編輯成功！
+  task_delete_sure: 確認刪除？
+  task_deleted_successful: 任務已刪除！
+  task_deleted_failed: 刪除失敗！
+  cant_find_task: 找不到任務喔！
+  task_state: 任務狀態
+  activerecord:
+    attributes:
+      task:
+        state: 狀態
+        state/pending: 待處理
+        state/processing: 進行中
+        state/finishing: 已完成
+        priority: 優先度
+        priority/high: 高
+        priority/medium: 中
+        priority/low: 低
+  pending: 待處理
+  processing: 進行中
+  finishing: 已完成
+  task_priority: 優先度
+  high: 高
+  medium: 中
+  low: 低
+  add: 請選擇...
+  search_index: 任務索引
+  selected: 請選擇...
+  low_to_high: 低到高
+  high_to_low: 高到低
+  advanced_search: 進階搜尋

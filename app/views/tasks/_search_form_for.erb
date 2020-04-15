@@ -1,12 +1,12 @@
 <%= search_form_for q do |f| %>
   <%= f.label "#{t :sort_by}：" %>
   <%= select_tag :order, grouped_options_for_select( [["#{t :selected}", [["#{t :create_time}", :created_at], ["#{t :end_time}", :end_time]]]] ), class: 'form-control' %>
-  <%= f.submit class: 'btn btn-primary', name: 'commit01' %>
+  <%= f.submit class: 'btn btn-secondary', name: 'commit01' %>
 <% end %>
 <%= search_form_for q do |f| %>
   <%= f.label "#{t :task_priority}：" %>
   <%= select_tag :degree, grouped_options_for_select( [["#{t :selected}", [["#{t :low_to_high}", 'ASC'], ["#{t :high_to_low}", 'DESC']]]] ), class: 'form-control' %>
-  <%= f.submit class: 'btn btn-primary', name: 'commit02' %>
+  <%= f.submit class: 'btn btn-secondary', name: 'commit02' %>
 <% end %>
 <%= search_form_for q do |f| %>
   <%= f.label "#{t :advanced_search}：" %>
@@ -14,5 +14,5 @@
   <%= f.input :priority_cont, label: "#{t :task_priority}", collection: [['high', "#{t :high}"], ['medium', "#{t :medium}"], ['low', "#{t :low}"]], label_method: :second, value_method: :first %>
   <%= f.label "#{t :search_index}" %>
   <%= f.text_field :title_or_content_cont, class: 'form-control' %>
-  <%= f.submit class: 'btn btn-primary', name: 'commit03' %>
+  <%= f.submit class: 'btn btn-secondary', name: 'commit03' %>
 <% end %>

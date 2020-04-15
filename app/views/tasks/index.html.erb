@@ -1,6 +1,6 @@
 <h2><%= t :tasks_list %></h2>
 <h5><%= notice %></h5>
-<%= link_to "#{t :new_task}", new_task_path, class: 'btn btn-outline-primary' %>
+<%= link_to "#{t :new_task}", new_task_path, class: 'btn btn-outline-secondary' %>
 <%= render 'search_form_for', q: @q %>
 <%= render 'tasks', tasks: @tasks %>
 <%= paginate @tasks %>

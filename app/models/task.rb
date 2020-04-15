@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   validates_presence_of :title
 
   scope :order_by_time, ->(field) { field ? order("#{field.to_sym} ASC") : all }
-  scope :order_by_priority, ->(field) { field ? order("degree #{field}") : all }
+  scope :order_by_priority, ->(order) { order ? order("degree #{order}") : all }
 
   belongs_to :users
 

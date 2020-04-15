@@ -7,7 +7,7 @@ en:
   create_time: Create Time
   end_time: End Time
   task_content: Task Content
-  back_to_task_list: Back
+  back: Back
   sure: Sure
   cant_be_blank: can't be blank
   sort_by: sort by...
@@ -43,3 +43,22 @@ en:
   low_to_high: Low to High
   high_to_low: High to Low
   advanced_search: Advanced Search
+  user_admin: User Admin
+  new_user: New User
+  edit_user: Edit User
+  user_name: User Name
+  email: Email
+  password: Password
+  system_id: System ID
+  edit_user: Edit
+  delete_user: Delete
+  user_delete_sure: delete user?
+  task_home: Task Home
+  user_admin: User Admin
+  task_amount: Task Amount
+  user_created_successful: user created successful!
+  user_edited_successful: user edited successful!
+  user_delete_sure: delete user?
+  user_deleted_successful: user deleted successful!
+  user_deleted_failed: user deleted failed!
+  cant_find_user: can't find user!

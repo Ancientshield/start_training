@@ -6,6 +6,9 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
+    if session[:user_id].present?
+      @tasks = @tasks.where(user_id: session[:user_id])
+    end
     if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whitelist)
       @tasks = @tasks.order_by_time(params[:order]).order_by_priority(params[:degree])
     end
@@ -18,6 +21,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = session[:user_id]
     task_degree
     if @task.save
       redirect_to tasks_path, notice: (t :task_created_successful)
@@ -27,10 +31,12 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task.user_id = session[:user_id]
     task_degree
   end
 
   def update
+    @task.user_id = session[:user_id]
     task_degree
     if @task.update(task_params)
       redirect_to tasks_path, notice: (t :task_edited_successful)
@@ -50,7 +56,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree)
+    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree, :user_id)
   end
 
   def order_params

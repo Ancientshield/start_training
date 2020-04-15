@@ -6,7 +6,7 @@ RSpec.feature 'delete task', type: :feature do
   # let!(:exist_task) { create(:task, title: 'Feature Test 002', created_at: '2020-03-12 12:00', end_time: '2020-03-22 12:00') }
   scenario 'success' do
     visit login_path
-    fill_in 'name', with: 'admin'
+    fill_in 'name', with: 'admin01'
     fill_in 'password', with: 'asdf1234'
     click_on 'commit'
     visit new_task_path

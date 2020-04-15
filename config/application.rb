@@ -14,6 +14,7 @@ module Training
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = 'zh-TW'
     config.i18n.available_locales = %i[en zh-TW]
+    config.exceptions_app = routes
     config.time_zone = 'Taipei'
     config.generators do |g|
       g.test_framework :rspec,

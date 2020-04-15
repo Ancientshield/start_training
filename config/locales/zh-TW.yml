@@ -62,3 +62,9 @@ zh-TW:
   user_deleted_successful: 使用者已刪除！
   user_deleted_failed: 刪除失敗！
   cant_find_user: 找不到此使用者！
+  the_page_404: 您要尋找的頁面不存在。
+  you_may: 您可能輸入了錯誤的網址，或者頁面已經刪除。
+  if_you: 如果您是開發人員，請查看日誌以獲得更多訊息。
+  the_change_422: 您的要求被拒絕。
+  maybe_you: 也許您試圖進入無法訪問的內容。
+  were_sorry_500: 發生錯誤，我們感到抱歉。

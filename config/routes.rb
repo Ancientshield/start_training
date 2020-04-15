@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     collection { post :search, to: 'tasks#index' }
   end
   resources :users, param: :name, path: '/admin'
+
+  match '/404', via: :all, to: 'errors#not_found'
+  match '/422', via: :all, to: 'errors#unprocessable_entity'
+  match '/500', via: :all, to: 'errors#server_error'
 end

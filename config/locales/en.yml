@@ -62,3 +62,9 @@ en:
   user_deleted_successful: user deleted successful!
   user_deleted_failed: user deleted failed!
   cant_find_user: can't find user!
+  the_page_404: The page you were looking for doesn't exist.
+  you_may: You may have mistyped the address or the page may have moved.
+  if_you: If you are the application owner check the logs for more information.
+  the_change_422: The change you wanted was rejected.
+  maybe_you: Maybe you tried to change something you didn't have access to.
+  were_sorry_500: We're sorry, but something went wrong.

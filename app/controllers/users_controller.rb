@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :find_user, only: %i[edit update destroy]
+  before_action :admin
   def index
     @users = User.includes(:tasks).limit(5).page(params[:page])
   end
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
       redirect_to users_path, notice: (t :user_deleted_successful)
     else
       redirect_to users_path, notice: (t :user_deleted_failed)
-  end
+    end
   end
 
   private
@@ -45,5 +46,12 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find_by(name: params[:name])
+  end
+
+  def admin
+    if User.find_by(id: session[:user_id]).authority == 'admin'
+    else
+      redirect_to tasks_path, notice: (t :no_access)
+    end
   end
 end

@@ -14,11 +14,11 @@ RSpec.feature 'tasks order by priority', type: :feature do
     click_on 'commit'
     visit new_task_path
     fill_in (I18n.t :task_title).to_s, with: 'Task Order 005'
-    page.choose('task_priority_low').click
+    page.choose("task_priority_#{I18n.t :low}").click
     click_on (I18n.t :sure).to_s
     visit new_task_path
     fill_in (I18n.t :task_title).to_s, with: 'Task Order 006'
-    page.choose('task_priority_high').click
+    page.choose("task_priority_#{I18n.t :high}").click
     click_on (I18n.t :sure).to_s
     visit tasks_path
     find('#degree').find('option[value=ASC]').select_option

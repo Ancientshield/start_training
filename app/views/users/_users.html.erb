@@ -5,6 +5,7 @@
       <th scope="col"><%= t :user_name %></th>
       <th scope="col"><%= t :email %></th>
       <th scope="col"><%= t :task_amount %></th>
+      <th scope="col"><%= t :choose_role %></th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.tasks.count %></td>
+        <td><%= link_to "#{t :choose}", change_path(name: user.name), class: 'btn btn-outline-secondary', method: :post %></td>
         <td><%= link_to "#{t :edit_user}", edit_user_path(user), class: 'btn btn-outline-secondary' %>
           <%= link_to "#{t :delete_user}", user_path(user), method: 'delete', data: { confirm: "#{t :user_delete_sure}" }, class: 'btn btn-secondary' %></td>
       </tr>

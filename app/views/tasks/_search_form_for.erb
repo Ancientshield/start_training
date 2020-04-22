@@ -10,8 +10,8 @@
 <% end %>
 <%= search_form_for q do |f| %>
   <%= f.label "#{t :advanced_search}：" %>
-  <%= f.input :state_cont, label: "#{t :task_state}", collection: [['pending', "#{t :pending}"], ['processing', "#{t :processing}"], ['finishing', "#{t :finishing}"]], label_method: :second, value_method: :first %>
-  <%= f.input :priority_cont, label: "#{t :task_priority}", collection: [['high', "#{t :high}"], ['medium', "#{t :medium}"], ['low', "#{t :low}"]], label_method: :second, value_method: :first %>
+  <%= f.input :state_eq, label: "#{t :task_state}", collection: [[1, "#{t :pending}"], [2, "#{t :processing}"], [3, "#{t :finishing}"]], label_method: :second, value_method: :first %>
+  <%= f.input :priority_eq, label: "#{t :task_priority}", collection: [[3, "#{t :high}"], [2, "#{t :medium}"], [1, "#{t :low}"]], label_method: :second, value_method: :first %>
   <%= f.label "#{t :search_index}" %>
   <%= f.text_field :title_or_content_cont, class: 'form-control' %>
   <%= f.submit class: 'btn btn-secondary', name: 'commit03' %>

@@ -31,7 +31,6 @@ gem 'bcrypt'
 
 # Reduces boot times through caching; required in config/boot.rb
 # gem 'bootsnap', '>= 1.4.2', require: false
-gem 'aasm'
 gem 'bootsnap', '~> 1.4', '>= 1.4.5'
 gem 'bootstrap', '~> 4.4'
 gem 'bootstrap-datepicker-rails'
@@ -46,6 +45,9 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'kaminari'
 gem 'popper_js'
 gem 'pry', '~> 0.10.3'
+gem 'pry-nav'
+gem 'pry-rails'
+gem 'pry-remote'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'ransack'
 gem 'seo_helper'

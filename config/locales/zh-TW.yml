@@ -54,7 +54,13 @@ zh-TW:
   delete_user: 刪除
   user_delete_sure: 確認刪除？
   task_home: 任務首頁
-  user_admin: 使用者管理
+  about: 關於
+  account: 帳號
+  logout: 登出
+  login: 登入
+  profile: 檔案
+  setting: 設定
+  please_login: 請登入帳號
   task_amount: 任務數量
   user_created_successful: 使用者新增成功！
   user_edited_successful: 編輯成功！
@@ -68,3 +74,10 @@ zh-TW:
   the_change_422: 您的要求被拒絕。
   maybe_you: 也許您試圖進入無法訪問的內容。
   were_sorry_500: 發生錯誤，我們感到抱歉。
+  no_access: 沒有權限進入！
+  admin: 管理
+  profile: 資料
+  setting: 設定
+  hello: 你好，
+  choose_role: 選擇角色
+  choose: 選擇

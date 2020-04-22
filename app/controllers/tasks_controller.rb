@@ -3,6 +3,7 @@
 class TasksController < ApplicationController
   include SessionsHelper
   before_action :find_task, only: %i[edit update destroy]
+
   def index
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
@@ -72,7 +73,7 @@ class TasksController < ApplicationController
   end
 
   def task_degree
-    tables = { low: 1, medium: 2, high: 3 }
+    tables = { "#{t :low}": 1, "#{t :medium}": 2, "#{t :high}": 3 }
     @task.degree = tables[@task.priority.to_sym] if @task.priority.present?
   end
 

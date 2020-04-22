@@ -2,8 +2,8 @@
   <p id="notice"><%= flash[:alert] %></p>
 <% end %>
 <%= bootstrap_form_tag url:'/login' do |f| %>
-  <legend>Please Log In</legend>
-  <%= f.text_field :name %>
-  <%= f.password_field :password %>
-  <%= f.submit 'login' %>
+  <legend><%= t :please_login %></legend>
+  <%= f.text_field :name, label: "#{t :user_name}" %>
+  <%= f.password_field :password, label: "#{t :password}" %>
+  <%= f.submit "#{t :login}" %>
 <% end %>

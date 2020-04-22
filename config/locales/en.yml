@@ -54,7 +54,13 @@ en:
   delete_user: Delete
   user_delete_sure: delete user?
   task_home: Task Home
-  user_admin: User Admin
+  about: About
+  account: Account
+  logout: Log Out
+  login: Log In
+  profile: Profile
+  setting: Setting
+  please_login: Please Log In
   task_amount: Task Amount
   user_created_successful: user created successful!
   user_edited_successful: user edited successful!
@@ -68,3 +74,10 @@ en:
   the_change_422: The change you wanted was rejected.
   maybe_you: Maybe you tried to change something you didn't have access to.
   were_sorry_500: We're sorry, but something went wrong.
+  no_access: No Access!!
+  admin: Admin
+  profile: Profile
+  setting: Setting
+  hello: Hello,
+  choose_role: Choose Role
+  choose: Choose

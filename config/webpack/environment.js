@@ -1,13 +1,4 @@
 const { environment } = require("@rails/webpacker");
-const nodeExternals = require("webpack-node-externals");
-
-// environment.config.target = "node";
-
-// environment.config.externals = [
-//   { express: "commonjs express" },
-//   nodeExternals()
-// ];
-
 const webpack = require("webpack");
 
 environment.loaders.append("expose", {
@@ -15,13 +6,13 @@ environment.loaders.append("expose", {
   use: [
     {
       loader: "expose-loader",
-      options: "jQuery"
+      options: "jQuery",
     },
     {
       loader: "expose-loader",
-      options: "$"
-    }
-  ]
+      options: "$",
+    },
+  ],
 });
 
 environment.plugins.append(
@@ -29,7 +20,8 @@ environment.plugins.append(
   new webpack.ProvidePlugin({
     $: "jquery",
     jQuery: "jquery",
-    Popper: ["popper.js", "default"]
+    Popper: ["popper.js", "default"],
+    "jQuery.bootstrap-tagsinput": "tagsinput.js",
   })
 );
 

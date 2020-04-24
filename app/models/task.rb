@@ -7,6 +7,7 @@ class Task < ApplicationRecord
   scope :order_by_priority, ->(order) { order ? order("degree #{order}") : all }
 
   belongs_to :users
+  has_many :tags, :tag_lists, dependent: :destroy
 
   enum state: { "#{I18n.t :pending}": 1, "#{I18n.t :processing}": 2, "#{I18n.t :finishing}": 3 }
   enum priority: { "#{I18n.t :low}": 1, "#{I18n.t :medium}": 2, "#{I18n.t :high}": 3 }

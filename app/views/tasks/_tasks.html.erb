@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
       <p class="card-text">
-        <% binding.pry_remote %>
+        <%# binding.pry_remote %>
         <% task.tag_lists.each do |t| %>
           <span class="badge badge-secondary">
             <%= Tag.find(t.tag_id).name %>

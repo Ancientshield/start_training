@@ -23,6 +23,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = session[:user_id]
+
     task_degree
     if @task.save
       redirect_to tasks_path, notice: (t :task_created_successful)
@@ -57,7 +58,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree, :user_id)
+    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree, :user_id, { task_tags: [] })
   end
 
   def order_params

@@ -9,6 +9,11 @@
     </div>
     <div class="card-body">
       <p class="card-text">
+        <% task.tag_lists.each do |t| %>
+          <span class="badge badge-secondary">
+            <%= Tag.find(t.tag_id).name %>
+          </span>
+        <% end %>
         <%= task.content %>
       </p>
       <%= link_to "#{t :edit_task}", edit_task_path(task), class: 'btn btn-outline-secondary' %>

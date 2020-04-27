@@ -2,9 +2,9 @@
 
 class User < ApplicationRecord
   before_destroy :check_admin_amount
-  validates :name, :email, :password_digest, presence: true, uniqueness: true
+  validates :name, :email, :password, :authority, presence: true, uniqueness: true
   has_secure_password
-  has_many :tasks, :tags, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
   def to_param
     name

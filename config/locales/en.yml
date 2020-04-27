@@ -81,3 +81,6 @@ en:
   hello: Hello,
   choose_role: Choose Role
   choose: Choose
+  admin_role: Admin
+  user_role: User
+  authority: Authority

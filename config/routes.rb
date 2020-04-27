@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   root to: 'tasks#index'
   resources :tasks do
     collection { post :search, to: 'tasks#index' }
-    resources :tags
   end
   resources :users, param: :name, path: '/admin'
 

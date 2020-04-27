@@ -58,7 +58,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree, :user_id, { task_tags: [] })
+    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree, :user_id, :task_lists, { task_tags: [] })
   end
 
   def order_params

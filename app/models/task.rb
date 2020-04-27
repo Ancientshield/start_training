@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
-  validates_presence_of :title, :state, :priority
+  validates_presence_of :title
 
   scope :order_by_time, ->(field) { field ? order("#{field.to_sym} ASC") : all }
   scope :order_by_priority, ->(order) { order ? order("degree #{order}") : all }
 
-  belongs_to :users
+  belongs_to :user
   has_many :tag_lists
   has_many :tags, through: :tag_lists
 

@@ -6,8 +6,8 @@ class TasksController < ApplicationController
 
   def index
     @q = Task.ransack(params[:q])
-    binding.pry_remote
-    @tasks = @q.result(distinct: true)
+    @tasks = @q.result(distinct: true).includes(:tags)
+
     if session[:user_id].present?
       @tasks = @tasks.where(user_id: session[:user_id])
     end

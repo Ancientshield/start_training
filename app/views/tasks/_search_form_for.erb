@@ -13,6 +13,6 @@
   <%= f.input :state_eq, label: "#{t :task_state}", collection: [[1, "#{t :pending}"], [2, "#{t :processing}"], [3, "#{t :finishing}"]], label_method: :second, value_method: :first %>
   <%= f.input :priority_eq, label: "#{t :task_priority}", collection: [[3, "#{t :high}"], [2, "#{t :medium}"], [1, "#{t :low}"]], label_method: :second, value_method: :first %>
   <%= f.label "#{t :search_index}" %>
-  <%= f.text_field :title_or_content_cont, class: 'form-control' %>
+  <%= f.text_field :title_or_content_or_tags_name_cont, class: 'form-control' %>
   <%= f.submit class: 'btn btn-secondary', name: 'commit03' %>
 <% end %>

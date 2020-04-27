@@ -13,7 +13,7 @@ require 'faker'
 @state = %w[pending processing finishing]
 @priority = %w[high medium low]
 
-User.create!(name: 'admin01', email: 'admin01@gmail.com', password: 'asdf1234')
+User.create(name: 'admin01', email: 'admin01@gmail.com', password: 'asdf1234', authority: 'admin')
 # 10.times do
 #   Task.create(
 #     title: Faker::Games::Pokemon.location,

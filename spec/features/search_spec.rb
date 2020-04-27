@@ -15,7 +15,7 @@ RSpec.feature 'search spec', type: :feature do
     page.choose("task_state_#{I18n.t :pending}").click
     click_on (I18n.t :sure).to_s
     visit tasks_path
-    page.fill_in 'q_title_or_content_cont', with: 'Task Order 007'
+    page.fill_in 'q_title_or_content_or_tags_name_cont', with: 'Task Order 007'
     find_button('commit03').click
     expect(page).to have_text('Task Order 007')
     expect(Task.last.state).to eq (I18n.t :pending).to_s

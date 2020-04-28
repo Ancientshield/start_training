@@ -31,9 +31,9 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     session[:user_name] = user.name
     if user.authority == 'admin'
-      redirect_to users_path
+      redirect_to users_path, notice: "#{t :present_account}：#{user.name}"
     else
-      redirect_to root_url
+      redirect_to root_url, notice: "#{t :present_account}：#{user.name}"
     end
   end
 end

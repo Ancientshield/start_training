@@ -33,7 +33,7 @@ zh-TW:
   pending: 待處理
   processing: 進行中
   finishing: 已完成
-  task_priority: 優先度
+  task_priority: 優先程度
   high: 高
   medium: 中
   low: 低
@@ -42,6 +42,7 @@ zh-TW:
   selected: 請選擇...
   low_to_high: 低到高
   high_to_low: 高到低
+  simple_search: 簡易搜尋
   advanced_search: 進階搜尋
   user_admin: 使用者管理
   new_user: 新增使用者
@@ -85,3 +86,4 @@ zh-TW:
   user_role: 使用者
   authority: 權限
   task_tags: 任務標籤
+  present_account: 目前帳號

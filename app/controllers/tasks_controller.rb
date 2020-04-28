@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whitelist)
       @tasks = @tasks.order_by_time(params[:order]).order_by_priority(params[:degree])
     end
-    @tasks = @tasks.limit(5).page(params[:page])
+    @tasks = @tasks.limit(6).page(params[:page])
   end
 
   def new

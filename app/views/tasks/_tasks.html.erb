@@ -1,23 +1,26 @@
-<% tasks.each do |task| %>
-  <div class="card">
-    <div class="card-header">
-      <a><%= task.title %></a>
-      <a><%= t :create_time %>：<%= task.created_at.strftime('%Y-%m-%d %H:%M:%S %z')%></a>
-      <a><%= t :end_time %>：<%= task.end_time.strftime('%Y-%m-%d %H:%M:%S %z') %></a>
-      <a><%= t :task_state %>：<%= task.state %></a>
-      <a><%= t :task_priority %>：<%= task.priority %></a>
-    </div>
-    <div class="card-body">
-      <p class="card-text">
+<div class="row col-md-auto">
+  <% tasks.each do |task| %>
+    <div class="card col-4">
+      <div class="card-header small">
+        <a><%= t :task_title %>：<%= task.title %></a><br>
+        <a><%= t :create_time %>：<%= task.created_at.strftime('%Y-%m-%d %H:%M %z')%></a><br>
+        <a><%= t :end_time %>：<%= task.end_time.strftime('%Y-%m-%d %H:%M %z') %></a><br>
+        <a><%= t :task_state %>：<%= task.state %></a><br>
+        <a><%= t :task_priority %>：<%= task.priority %></a><br>
+      </div>
+      <div class="card-body">
         <% task.tag_lists.each do |t| %>
           <span class="badge badge-secondary">
             <%= Tag.find(t.tag_id).name %>
           </span>
         <% end %>
-        <%= task.content %>
-      </p>
-      <%= link_to "#{t :edit_task}", edit_task_path(task), class: 'btn btn-outline-secondary' %>
-      <%= link_to "#{t :delete_task}", task_path(task), method: 'delete', data: { confirm: "#{t :task_delete_sure}" }, class: 'btn btn-secondary' %>
+        <p class="card-text">
+          <%= task.content %>
+        </p>
+        <%= link_to "#{t :edit_task}", edit_task_path(task), class: 'btn btn-outline-secondary btn-sm' %>
+        <%= link_to "#{t :delete_task}", task_path(task), method: 'delete', data: { confirm: "#{t :task_delete_sure}" }, class: 'btn btn-secondary btn-sm' %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
+

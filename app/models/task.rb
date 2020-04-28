@@ -4,7 +4,8 @@ class Task < ApplicationRecord
   validates_presence_of :title
 
   scope :order_by_time, ->(field) { field ? order("#{field.to_sym} ASC") : all }
-  scope :order_by_priority, ->(order) { order ? order("degree #{order}") : all }
+  # 不加.to_sym不會噴錯，但不知為何一定要加.to_sym才能正常運作
+  scope :order_by_priority, ->(order) { order ? order("degree #{order.to_sym}") : all }
 
   belongs_to :user
   has_many :tag_lists

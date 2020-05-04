@@ -3,7 +3,8 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i[edit update destroy]
   def index
-    @users = User.all
+    @users = User.includes(:task)
+    @users = @users.limit(5).page(params[:page])
   end
 
   def new
@@ -45,7 +46,5 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find_by(name: params[:name])
-  rescue StandardError
-    redirect_to users_path, notice: (t :cant_find_user)
   end
 end

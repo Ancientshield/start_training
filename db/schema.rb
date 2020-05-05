@@ -12,48 +12,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20_200_424_124_715) do
-=======
-ActiveRecord::Schema.define(version: 2020_04_24_015757) do
-
->>>>>>> a5bf18c4... rebase master
+ActiveRecord::Schema.define(version: 20_200_424_015_757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
-<<<<<<< HEAD
   create_table 'tag_lists', force: :cascade do |t|
     t.integer 'task_id'
     t.integer 'tag_id'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-=======
-  create_table "tag_lists", force: :cascade do |t|
-    t.integer "task_id"
-    t.integer "tag_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.integer "task_id"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'tags', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'task_id'
+    t.integer 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "end_time"
-    t.integer "state"
-    t.integer "priority"
-    t.integer "degree"
-    t.integer "user_id"
->>>>>>> a5bf18c4... rebase master
+  create_table 'tasks', force: :cascade do |t|
+    t.string 'title'
+    t.string 'content'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.datetime 'end_time'
+    t.integer 'state'
+    t.integer 'priority'
+    t.integer 'degree'
+    t.integer 'user_id'
   end
 
   create_table 'tags', force: :cascade do |t|

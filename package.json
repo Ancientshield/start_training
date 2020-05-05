@@ -11,8 +11,12 @@
     "bootstrap-tagsinput": "^0.7.1",
     "expose-loader": "^0.7.5",
     "gulp": "^4.0.2",
+    "heroku": "^7.40.0",
     "jquery": "^3.5.0",
+    "node": "^14.0.0",
     "node-gyp": "^6.1.0",
+    "nodejs": "^0.0.0",
+    "package.json": "^2.0.1",
     "popper": "^1.0.1",
     "popper.js": "^1.16.1",
     "select2": "^4.0.13",
@@ -25,5 +29,9 @@
   },
   "scripts": {
     "test": "test --passWithNoTests"
+  },
+  "engines": {
+    "node": "14.1.0",
+    "yarn": "1.22.4"
   }
 }

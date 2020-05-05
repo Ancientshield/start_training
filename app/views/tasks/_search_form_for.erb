@@ -21,9 +21,9 @@
   <div class="row col-md-8">
     <div class="col-12">
       <%= "#{t :advanced_search}：" %></br>
-    </div>
-    <div class="col-3">
-      <%= search_form_for q do |f| %>
+  </div>
+  <div class="col-3">
+    <%= search_form_for q do |f| %>
       <%= f.input :state_eq, label: "#{t :task_state}", collection: [[1, "#{t :pending}"], [2, "#{t :processing}"], [3, "#{t :finishing}"]], label_method: :second, value_method: :first %>
     </div>
     <div class="col-3">
@@ -33,7 +33,7 @@
       <%= f.label "#{t :search_index}：" %>
       <%= f.text_field :title_or_content_or_tags_name_cont, class: 'form-control' %>
       <%= f.submit class: 'btn btn-secondary btn-sm', name: 'commit03' %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
 </div>

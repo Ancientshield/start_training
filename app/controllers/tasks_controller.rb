@@ -4,8 +4,11 @@ class TasksController < ApplicationController
   include SessionsHelper
   before_action :find_task, only: %i[edit update destroy]
   def index
-    @q = current_user.ransack(params[:q])
+    @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
+    if session[:user_id].present?
+      @tasks = @tasks.where(user_id: session[:user_id])
+    end
     if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whitelist)
       @tasks = @tasks.order_by_time(params[:order]).order_by_priority(params[:degree])
     end

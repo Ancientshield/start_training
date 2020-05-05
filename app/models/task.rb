@@ -21,7 +21,6 @@ class Task < ApplicationRecord
       Tag.where(name: n.strip).first_or_create! unless n.blank?
     end .compact!
   end
-
   enum state: { "#{I18n.t :pending}": 1, "#{I18n.t :processing}": 2, "#{I18n.t :finishing}": 3 }
   enum priority: { "#{I18n.t :low}": 1, "#{I18n.t :medium}": 2, "#{I18n.t :high}": 3 }
 end

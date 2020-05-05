@@ -31,7 +31,6 @@
     "test": "test --passWithNoTests"
   },
   "engines": {
-    "node": "14.1.0",
     "yarn": "1.22.4"
   }
 }

@@ -5,7 +5,8 @@ class User < ApplicationRecord
   validates :name, :email, uniqueness: true
   validates :password, :authority, presence: true
   has_secure_password
-  has_many :tasks, :tags, dependent: :destroy
+  has_many :tasks
+  has_many :tags, dependent: :destroy
 
   def to_param
     name

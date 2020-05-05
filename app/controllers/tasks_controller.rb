@@ -5,18 +5,8 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[edit update destroy]
 
   def index
-<<<<<<< HEAD
-    @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true).includes(:tags)
-
-    if session[:user_id].present?
-      @tasks = @tasks.where(user_id: session[:user_id])
-    end
-=======
-    task_class = logged_in? ? current_user.tasks : Task
-    @q = task_class.ransack(params[:q])
+    @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result(distinct: true)
->>>>>>> 57a5ad3a... fix comment issue
     if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whitelist)
       @tasks = @tasks.order_by_time(params[:order]).order_by_priority(params[:degree])
     end
@@ -28,13 +18,7 @@ class TasksController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-    @task = Task.new(task_params)
-    @task.user_id = session[:user_id]
-
-=======
     @task = current_user.tasks.new(task_params)
->>>>>>> 57a5ad3a... fix comment issue
     task_degree
     if @task.save
       redirect_to tasks_path, notice: (t :task_created_successful)

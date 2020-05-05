@@ -3,8 +3,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i[edit update destroy]
   def index
-    @users = User.includes(:task)
-    @users = @users.limit(5).page(params[:page])
+    @users = User.includes(:tasks).limit(5).page(params[:page])
   end
 
   def new

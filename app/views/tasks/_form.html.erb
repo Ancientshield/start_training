@@ -1,10 +1,15 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
 <%= simple_form_for(task) do |f| %>
   <%= f.input :title, label: "#{t :task_title}" %>
   <%= f.input :content, label: "#{t :task_content}" %>
   <%= f.input :priority, as: :radio_buttons, collection: [["#{t :high}","#{t :high}"], ["#{t :medium}","#{t :medium}"], ["#{t :low}","#{t :low}"]], label_method: :second, value_method: :first, wrapper: :vertical_collection_inline %>
   <%= f.input :state, as: :radio_buttons, collection: [["#{t :pending}","#{t :pending}"], ["#{t :processing}","#{t :processing}"], ["#{t :finishing}","#{t :finishing}"]], label_method: :second, value_method: :first, wrapper: :vertical_collection_inline %>
   <%= f.input :end_time, label: "#{t :end_time}" %>
+<<<<<<< HEAD
   <%= f.input :task_tags, label: "#{t :task_tags}", as: :select, collection: Tag.order(:name), label_method: :name, value_method: :name, input_html: {multiple: true} %>
+=======
+  <input type="text" data-role="tagsinput" value="" />
+>>>>>>> a5bf18c4... rebase master
   <%= f.button :submit, "#{t :sure}", class: 'btn btn-outline-secondary' %>
   <%= link_to "#{t :back}", tasks_path, class: 'btn btn-secondary' %>
 <% end %>

@@ -5,8 +5,12 @@ class User < ApplicationRecord
   validates :name, :email, uniqueness: true
   validates :password, :authority, presence: :true
   has_secure_password
+<<<<<<< HEAD
   has_many :tasks
   has_many :tags, dependent: :destroy
+=======
+  has_many :tasks, :tags, dependent: :destroy
+>>>>>>> a5bf18c4... rebase master
 
   def to_param
     name

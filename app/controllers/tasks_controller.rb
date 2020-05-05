@@ -6,6 +6,9 @@ class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
+    if session[:user_id].present?
+      @tasks = @tasks.where(user_id: session[:user_id])
+    end
     if params[:order].in?(order_whitelist) || params[:degree].in?(degree_whitelist)
       @tasks = @tasks.order_by_time(params[:order]).order_by_priority(params[:degree])
     end
@@ -13,11 +16,11 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.new
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
     task_degree
     if @task.save
       redirect_to tasks_path, notice: (t :task_created_successful)
@@ -79,7 +82,7 @@ class TasksController < ApplicationController
   end
 
   def find_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   rescue StandardError
     redirect_to tasks_path, notice: (t :cant_find_task)
   end

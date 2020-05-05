@@ -7,7 +7,7 @@ RSpec.feature 'update task', type: :feature do
 
   scenario 'valid inputs' do
     visit login_path
-    fill_in 'name', with: 'admin'
+    fill_in 'name', with: 'admin01'
     fill_in 'password', with: 'asdf1234'
     click_on 'commit'
     visit new_task_path

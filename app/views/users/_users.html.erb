@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t :system_id %></th>
+      <th scope="col"><%= t :user_name %></th>
+      <th scope="col"><%= t :email %></th>
+      <th scope="col"><%= t :task_amount %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></th>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.tasks.count %></td>
+        <td><%= link_to "#{t :edit_user}", edit_user_path(user), class: 'btn btn-outline-secondary' %>
+          <%= link_to "#{t :delete_user}", user_path(user), method: 'delete', data: { confirm: "#{t :user_delete_sure}" }, class: 'btn btn-secondary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

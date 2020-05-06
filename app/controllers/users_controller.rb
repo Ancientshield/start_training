@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path, notice: (t :user_edited_successful)
     else
-      redirect_to users_path, notice: (t :task_deleted_failed)
+      redirect_to users_path, notice: (t :task_edited_failed)
     end
   end
 

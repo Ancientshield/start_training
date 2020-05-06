@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  before_save { email.downcase! }
   before_destroy :check_admin_amount
-  validates :name, :email, uniqueness: true
-  validates :password, :authority, presence: :true
+
+  has_many :tasks, dependent: :destroy
+  validates :name, length: { maximum: 50 }, uniqueness: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: true
+  validates :password, :authority, presence: true
   has_secure_password
-<<<<<<< HEAD
-  has_many :tasks
-  has_many :tags, dependent: :destroy
-=======
-  has_many :tasks, :tags, dependent: :destroy
->>>>>>> a5bf18c4... rebase master
+  has_many :tasks, dependent: :destroy
 
   def to_param
     name

@@ -54,11 +54,4 @@ class UsersController < ApplicationController
       redirect_to tasks_path, notice: (t :no_access)
     end
   end
-
-  def admin
-    if User.find_by(id: session[:user_id]).authority == 'admin'
-    else
-      redirect_to tasks_path, notice: (t :no_access)
-    end
-  end
 end

@@ -13,7 +13,9 @@ en:
   sort_by: sort by...
   state_search: State Search
   task_created_successful: task created successful!
+  task_created_failed: task created failed!
   task_edited_successful: task edited successful!
+  task_edited_failed: task edited failed!
   task_delete_sure: delete task?
   task_deleted_successful: task deleted successful!
   task_deleted_failed: task deleted failed!
@@ -64,7 +66,9 @@ en:
   please_login: Please Log In
   task_amount: Task Amount
   user_created_successful: user created successful!
+  user_created_failed: user created failed!
   user_edited_successful: user edited successful!
+  user_edited_failed: user edited failed!
   user_delete_sure: delete user?
   user_deleted_successful: user deleted successful!
   user_deleted_failed: user deleted failed!

@@ -8,8 +8,8 @@ class Task < ApplicationRecord
   scope :order_by_priority, ->(order) { order ? order("degree #{order.to_sym}") : all }
 
   belongs_to :user
-  has_many :tag_lists
-  has_many :tags, through: :tag_lists
+  has_many :tag_lists, dependent: :destroy
+  has_many :tags, through: :tag_lists, dependent: :destroy
 
   def task_tags
     tags.map(&:name)

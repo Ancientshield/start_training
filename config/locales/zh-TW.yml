@@ -13,7 +13,9 @@ zh-TW:
   sort_by: 排序方式
   state_search: 狀態查詢
   task_created_successful: 任務新增成功！
+  task_created_failed: 任務新增失敗!
   task_edited_successful: 編輯成功！
+  task_edited_failed: 任務編輯失敗！
   task_delete_sure: 確認刪除？
   task_deleted_successful: 任務已刪除！
   task_deleted_failed: 刪除失敗！
@@ -64,7 +66,9 @@ zh-TW:
   please_login: 請登入帳號
   task_amount: 任務數量
   user_created_successful: 使用者新增成功！
+  user_created_failed: 使用者新增失敗！
   user_edited_successful: 編輯成功！
+  user_edited_failed: 編輯失敗!
   user_delete_sure: 確認刪除？
   user_deleted_successful: 使用者已刪除！
   user_deleted_failed: 刪除失敗！

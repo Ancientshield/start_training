@@ -2,6 +2,6 @@
 
 class Tag < ApplicationRecord
   belongs_to :task
-  belongs_to :user
-  has_many :tag_lists, dependent: :destroy
+  has_many :tag_lists
+  has_many :tasks, through: :tag_lists, dependent: :destroy
 end

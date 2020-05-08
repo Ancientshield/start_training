@@ -27,5 +27,5 @@ modify v1
 modify v2
 ![avatar](https://i.imgur.com/mr7u4Ey.png)
 
-finally v3
+final v3
 ![avatar](https://i.imgur.com/KN9TngQ.png)

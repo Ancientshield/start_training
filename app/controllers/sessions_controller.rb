@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
       redirect_to users_path, notice: "#{t :present_account}：#{user.name}"
     else
       redirect_to root_url, notice: "#{t :present_account}：#{user.name}"
+
     end
   end
 end

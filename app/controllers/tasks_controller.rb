@@ -18,13 +18,11 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.new
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.user_id = session[:user_id]
-
+    @task = current_user.tasks.new(task_params)
     task_degree
     if @task.save
       redirect_to tasks_path, notice: (t :task_created_successful)
@@ -34,12 +32,10 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task.user_id = session[:user_id]
     task_degree
   end
 
   def update
-    @task.user_id = session[:user_id]
     task_degree
     if @task.update(task_params)
       redirect_to tasks_path, notice: (t :task_edited_successful)
@@ -59,7 +55,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree, :user_id, :task_lists, { task_tags: [] })
+    params.require(:task).permit(:title, :end_time, :content, :state, :priority, :degree, :task_lists, { task_tags: [] })
   end
 
   def order_params
@@ -88,7 +84,7 @@ class TasksController < ApplicationController
   end
 
   def find_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   rescue StandardError
     redirect_to tasks_path, notice: (t :cant_find_task)
   end

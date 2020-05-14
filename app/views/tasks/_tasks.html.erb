@@ -11,7 +11,7 @@
       <div class="card-body">
         <% task.tag_lists.each do |t| %>
           <span class="badge badge-secondary">
-            <%= Tag.find(t.tag_id).name %>
+            <%= tag_name(t) %>
           </span>
         <% end %>
         <p class="card-text">

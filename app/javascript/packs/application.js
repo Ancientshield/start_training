@@ -28,10 +28,11 @@ import "../stylesheets/tagsinput.css";
 import "select2";
 import "select2/dist/css/select2.css";
 
-
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+$(document).on("ready turbolinks:load", function () {
+  $("#task_task_tags").select2({
+    tags: true,
+    //移到 webpack 打包， maximumInputLength 屬性會失效
+    maximumInputLength: 10,
+    tokenSeparators: [",", " "],
+  });
+});

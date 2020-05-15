@@ -8,12 +8,3 @@
   <%= f.button :submit, "#{t :sure}", class: 'btn btn-outline-secondary' %>
   <%= link_to "#{t :back}", tasks_path, class: 'btn btn-secondary' %>
 <% end %>
-<script>
-  $(document).on('ready turbolinks:load', function () {
-    $("#task_task_tags").select2({
-      tags: true,
-      maximumInputLength: 10,
-      tokenSeparators: [",", " "]
-    })
-  });
-</script>

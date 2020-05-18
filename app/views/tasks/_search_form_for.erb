@@ -1,18 +1,39 @@
-<%= search_form_for q do |f| %>
-  <%= f.label "#{t :sort_by}：" %>
-  <%= select_tag :order, grouped_options_for_select( [["#{t :selected}", [["#{t :create_time}", :created_at], ["#{t :end_time}", :end_time]]]] ), class: 'form-control' %>
-  <%= f.submit class: 'btn btn-secondary', name: 'commit01' %>
-<% end %>
-<%= search_form_for q do |f| %>
-  <%= f.label "#{t :task_priority}：" %>
-  <%= select_tag :degree, grouped_options_for_select( [["#{t :selected}", [["#{t :low_to_high}", 'ASC'], ["#{t :high_to_low}", 'DESC']]]] ), class: 'form-control' %>
-  <%= f.submit class: 'btn btn-secondary', name: 'commit02' %>
-<% end %>
-<%= search_form_for q do |f| %>
-  <%= f.label "#{t :advanced_search}：" %>
-  <%= f.input :state_eq, label: "#{t :task_state}", collection: [[1, "#{t :pending}"], [2, "#{t :processing}"], [3, "#{t :finishing}"]], label_method: :second, value_method: :first %>
-  <%= f.input :priority_eq, label: "#{t :task_priority}", collection: [[3, "#{t :high}"], [2, "#{t :medium}"], [1, "#{t :low}"]], label_method: :second, value_method: :first %>
-  <%= f.label "#{t :search_index}" %>
-  <%= f.text_field :title_or_content_cont, class: 'form-control' %>
-  <%= f.submit class: 'btn btn-secondary', name: 'commit03' %>
-<% end %>
+<div class="row">
+  <div class="row col-md-4">
+    <div class="col-12">
+      <%= "#{t :simple_search}：" %>
+    </div>
+    <div class="col-6">
+      <%= search_form_for q do |f| %>
+        <%= f.label "#{t :sort_by}：" %>
+        <%= select_tag :order, grouped_options_for_select( [["#{t :selected}", [["#{t :create_time}", :created_at], ["#{t :end_time}", :end_time]]]] ), class: 'form-control' %>
+        <%= f.submit class: 'btn btn-secondary btn-sm', name: 'commit01' %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <%= search_form_for q do |f| %>
+        <%= f.label "#{t :task_priority}：" %>
+        <%= select_tag :degree, grouped_options_for_select( [["#{t :selected}", [["#{t :low_to_high}", 'ASC'], ["#{t :high_to_low}", 'DESC']]]] ), class: 'form-control' %>
+        <%= f.submit class: 'btn btn-secondary btn-sm', name: 'commit02' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row col-md-8">
+    <div class="col-12">
+      <%= "#{t :advanced_search}：" %></br>
+    </div>
+    <div class="col-3">
+      <%= search_form_for q do |f| %>
+        <%= f.input :state_eq, label: "#{t :task_state}", collection: [[1, "#{t :pending}"], [2, "#{t :processing}"], [3, "#{t :finishing}"]], label_method: :second, value_method: :first %>
+      </div>
+      <div class="col-3">
+        <%= f.input :priority_eq, label: "#{t :task_priority}", collection: [[3, "#{t :high}"], [2, "#{t :medium}"], [1, "#{t :low}"]], label_method: :second, value_method: :first %>
+      </div>
+      <div class="col-6">
+        <%= f.label "#{t :search_index}：" %>
+        <%= f.text_field :title_or_content_or_tags_name_cont, class: 'form-control' %>
+        <%= f.submit class: 'btn btn-secondary btn-sm', name: 'commit03' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,8 @@
 <%= simple_form_for(user) do |f| %>
   <%= f.input :name, label: "#{t :user_name}" %>
   <%= f.input :email, label: "#{t :email}" %>
-  <%= f.input :password, label: "#{t :password}" %>
+  <%= f.input :password, label: "#{t :password}"%>
+  <%= f.input :authority, label: "#{t :authority}", collection: [['user',"#{t :user_role}"], ['admin',"#{t :admin_role}"]], label_method: :second, value_method: :first %>
   <%= f.button :submit, "#{t :sure}", class: 'btn btn-outline-secondary' %>
   <%= link_to "#{t :back}", users_path, class: 'btn btn-secondary' %>
 <% end %>

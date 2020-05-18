@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path, notice: (t :user_edited_successful)
     else
-      redirect_to users_path, notice: (t :task_deleted_failed)
+      redirect_to users_path, notice: (t :task_edited_failed)
     end
   end
 
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :authority)
   end
 
   def find_user

@@ -343,8 +343,6 @@ GEM
       ethon (>= 0.8.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2020.1)
-      tzinfo (>= 1.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.2)
@@ -402,7 +400,7 @@ DEPENDENCIES
   kaminari
   listen
   nokogiri (~> 1.6, >= 1.6.8)
-  pg (~> 0.18.4)
+  pg
   popper_js
   pry (~> 0.10.3)
   pry-nav
@@ -427,7 +425,6 @@ DEPENDENCIES
   travis (~> 1.8, >= 1.8.10)
   travis-lint (~> 2.0)
   turbolinks (~> 5)
-  tzinfo-data
   warden
   web-console (>= 3.3.0)
   webdrivers
@@ -440,4 +437,4 @@ RUBY VERSION
    ruby 2.7.0
 
 BUNDLED WITH
-   2.1.2
+   2.1.4

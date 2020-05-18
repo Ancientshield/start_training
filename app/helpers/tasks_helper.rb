@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module TasksHelper
-  def tag_name(t)
-    Tag.find(t.tag_id).name
+  def tag_name(tag_list)
+    tag_list.tag.name
   end
 
-  def tags_collection(n)
-    Tag.order(n)
+  def tags_collection(condition)
+    Tag.order(condition)
   end
 end

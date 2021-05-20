@@ -64,7 +64,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '>= 2.15'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
-  gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+  gem 'nokogiri', '~> 1.11'
   gem 'rspec', '~> 3.5'
   gem 'rspec-rails', '4.0.0.beta3'
   gem 'selenium-webdriver'

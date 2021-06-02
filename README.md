@@ -1,6 +1,6 @@
 # start_training
 
-[Demo link](https://stark-river-82749.herokuapp.com/)
+[Demo Link：](https://stark-river-82749.herokuapp.com/)
 
 - UI draft
 

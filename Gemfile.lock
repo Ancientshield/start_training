@@ -183,11 +183,6 @@ GEM
     nio4r (2.5.2-java)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.9-java)
-    nokogiri (1.10.9-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.9-x86-mingw32)
-      mini_portile2 (~> 2.4.0)
     pg (0.18.4)
     pg (0.18.4-x64-mingw32)
     pg (0.18.4-x86-mingw32)
@@ -217,7 +212,7 @@ GEM
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
-    rack (2.2.3)
+    rack (2.2.6.2)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
